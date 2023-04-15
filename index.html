@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="hotelio_favicon.png">
+        <link href='https://fonts.googleapis.com/css?family=Junge' rel='stylesheet'>
+        <link rel="stylesheet" href="styles_hotelio.css">
+        
+        <title>
+            Hotelio
+        </title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Junge&display=swap');
+            body 
+            {
+                background-color: bisque;
+                margin: 0;
+                font-family: sans-serif;
+            }
+            .hero 
+            {
+                /* Sizing */
+                width: 100vw;
+                height: 100vh;
+                /* Flexbox stuff */
+                display: flex;
+                justify-content: center;
+                align-items: center;           
+                /* Text styles */
+                text-align: center;
+                color: white; /* ADD THIS LINE */          
+                /* Background styles */
+                /* background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/569292/pexels-photo-569292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
+                filter: contrast(1);
+                padding-bottom: 55px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            .hero h1 
+            {
+                /* Text styles */
+                font-size: 5em;
+                /* Margins */
+                margin-top: 0;
+                margin-bottom: 0.5em;
+            }
+            .hero .btn 
+            {
+                /* Positioning and sizing */
+                display: block;
+                width: 200px;
+                /* Padding and margins */
+                padding: 1em;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                /* Text styles */
+                color: white; /* CHANGE THIS LINE */
+                text-shadow: 2px 2px black;
+                text-decoration: none;
+                font-size: 1.5em;
+                /* Border styles */
+                border: 3px solid white; /* CHANGE THIS LINE */
+                border-radius: 20px;
+                -webkit-transition: ease-out 0.4s;
+                -moz-transition: ease-out 0.4s;
+                transition: ease-out 0.4s;
+            }
+
+            .btn:hover
+            {
+                color: black;
+                background-color: white;
+                text-shadow: 2px 2px #d3d3d3;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="hero">
+            <div class="hero-inner">
+                
+                <img src = "Hotelio_transparent_logo.svg" width="500" height = "250" class="hero-logo">  
+                <video autoplay muted loop id="myVideo">
+                    <source src="hammock.mp4" type="video/mp4">
+                  </video>
+                <h2 class="hero-all-in-one">
+                    The All-in-one Hotel Management System!
+                </h2>
+                <a href="#section-2" class="btn">
+                    Let's go!
+                </a>
+            </div>
+        </section>
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.3.min.js" 
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
+            crossorigin="anonymous">
+        </script>
+        
+        <script>
+            $(document).ready(function()
+            {
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) 
+                {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") 
+                    {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+                    
+                        // Store hash
+                        var hash = this.hash;
+            
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({scrollTop: $(hash).offset().top}, 800, function()
+                        {
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        });
+                    } // End if
+                });
+            });
+        </script>
+    <div id="section-2">
+        <div class = "sign_ups">
+            
+            
+            <button  onclick="window.location.href='manager_hotel_info.php';" class="sign">Sign up for Hotelio</button>
+            <button  onclick="window.location.href='sign_in.html';" class="sign">Sign in to Hotelio</button>
+        </div> 
+
+            <div id="box">
+        
+                <center>
+                    <a href="index.html"><img src="Hotelio_transparent_logo.svg" height="100" width="350"></a>
+                </center>
+        
+        
+            </div>
+        
+            <div id="box1">
+                <center>
+                    <button style="margin-left: 0px; border-bottom-left-radius: 0px;" onclick="window.location.href='index.html#section-2';" class="main_menu_buttons"><img src="home_ani.gif" class="home_icon"  />Home</button>
+                    <button style="margin-left: -4px;" onclick="window.location.href='about_hotelio.html';" class="main_menu_buttons" ><img src="about_ani.gif" class="home_icon"  />About Hotelio</button>
+                    <button style="margin-left: -5px;" onclick="window.location.href='contact_us.html';" class="main_menu_buttons"><img src="contact_ani.gif" class="home_icon" />Contact Us</button>
+                </center>
+        
+            </div>
+        </div>
+
+ 
+                
+        <u>
+            <h2 style="font-family: Junge;" class="introduction-text">
+                Introduction
+            </h2>
+        </u>
+
+        
+        <h3 style = "font-family: Junge">Hotelio is an online Hotel Management System used by Hotels around the world to seamlessly conduct Hotel Operations.
+        <br>With Hotelio, hotel management operations become easy, simple and quick! <a href = "about_hotelio.html">Read More...</a>
+        </h3>
+
+        <div class="start-of-text-contents">
+            <!---
+        <video autoplay muted loop id="myVideo">
+            <source src="Video Footage Of Hotel.mp4" type="video/mp4">
+          </video>
+          -->
+        <u><h2 style="font-family: Junge;">Objective</h2></u>
+        <h3 style="font-family: Junge;">The major goal of the Hotel Management system is to lessen the inconvenience and
+            disturbance of moving by offering a centralised platform for all potential requirements.
+            It enables all information about the services rendered by the system to be easily at one’s
+            disposal from any part of the world.</h3>
+
+            <u><h2 style="font-family: Junge;">Our Aim</h2></u>
+            <h3 style="font-family: Junge;">The application is designed to provide all the booking and reservation details along with the
+                provision to manage hotel operations by the staff. Our application ensures ease of use and it’s
+                storage by various hotel operations staff.</h3>        
+                
+
+            <div id="mapping">
+                <center>
+                    <img src="mappingimg.png"alt="imagemap" class="image-maps" usemap="#workmap">
+                </center>
+                <map name="workmap">
+                    <area target="_parent" alt="Rooms" title="Rooms" href="rooms.html" coords="142,109,84" shape="circle">
+                    <area target="_parent" alt="Event Hall" title="Event Hall" href="eventhall.html" coords="211,416,97" shape="circle">
+                    <area target="_parent" alt="Recreation" title="Recreation" href="recr.html" coords="428,209,87" shape="circle">
+                </map>
+
+            </div>
+
+        </div> <!---End of video wrapper-->
+
+            <!---<button style="margin-left: 90%; padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px;" onclick="window.location.href='sign_up.html';">
+                <img src="whatsapp.png" height="70px" width="70px" class="chat-logo"/>
+            </button>
+                --->
+
+                <div class="footer">
+                    <strong><p>&copy;2023 Hotelio</p></strong>
+                </div>
+
+
+            
+
+            </body>
+
+    </html>
+

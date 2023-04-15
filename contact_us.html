@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="hotelio_favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Junge' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="styles_hotelio.css">
+    <title>Hotelio</title>
+
+</head>
+<body bgcolor="bisque" onload="generate();">
+
+    <button style="margin-left: 0px;" onclick="window.location.href='sign_up.html';" class="sign">Sign up for Hotelio</button>
+    <button style="margin-left: -5px; margin-right: 1px;" onclick="window.location.href='sign_in.html';" class="sign">Sign in to Hotelio</button>
+
+    <div id="box">
+
+        <center>
+            <a href="index.html"><img src="Hotelio_transparent_logo.svg" height="100" width="350"></a>
+        </center>
+
+
+    </div>
+
+
+    <div id="box1">
+        <center>
+            <button style="margin-left: 0px; border-bottom-left-radius: 0px;" onclick="window.location.href='index.html#section-2';" class="main_menu_buttons"><img src="home_ani.gif" class="home_icon"  />Home</button>
+            <button style="margin-left: -4px;" onclick="window.location.href='about_hotelio.html';" class="main_menu_buttons" ><img src="about_ani.gif" class="home_icon"  />About Hotelio</button>
+            <button style="margin-left: -5px;" onclick="window.location.href='contact_us.html';" class="main_menu_buttons"><img src="contact_ani.gif" class="home_icon" />Contact Us</button>
+        </center>
+
+    </div>
+
+    </br>
+
+   
+        <center>
+        <section class="contactform">
+            <form name="contactForm" id="contactForm" onsubmit="return false;" >  <!--onsubmit="return validateForm('contactForm');" -->
+                </br>
+                
+                <label id = "label-for-forms">Name<span id="asterisk">*</span></label>
+				<input type="text" class="input-text form-control username placeholder-no-fix" name="name" id="name" placeholder="Enter your name..." required>
+                <br>
+                </br>
+                <label>
+                    E-mail<span id="asterisk">*</span>
+                <input type="text" class="input-text form-control username placeholder-no-fix" name="emailAddress" id="email" placeholder="Enter your E-mail address..." required>
+                    <span id="show-email-msg"></span>
+            </label>    
+            </br>
+                <br>
+                <label>
+                    Your Message<span id="asterisk">*</span>
+                </label>
+                <br>
+                <textarea class="comment_side" class="input-text form-control username placeholder-no-fix" placeholder="Your message please...(upto 1000 words only)" maxlength="1000"></textarea>
+                <div id="chars-remaining">1000 words remaining...</div>
+                <br>
+                <br>
+                
+                <label>
+                    Enter Captcha code:<span id="asterisk">*</span>
+                </label>
+
+                <canvas id = "canvas" width="135" height = "40" style = "border: 1px solid black";>
+     
+                </canvas> <button onclick="generate()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+				<input type="text" class="input-text form-control username placeholder-no-fix" name="captcha" id="captcha" data-validate="required" data-validatename="your security code" placeholder="Enter Captcha Code..." required>
+                <span id="show-captcha-msg"></span>
+                <br>
+                <br>
+                <button id="contact_submit" onclick="validate()">
+                    SUBMIT
+                </button>
+			</form>
+        </section>
+        </center>
+    
+
+        
+<br>
+    <div class="footer">
+        <br>
+        <h3 style="font-family: Junge, Arial;">Contact the developers:</h3>
+        <h4 style="font-family: Junge;"> Mohammed Mueez Mamoon - mohammed.mueez@bca.christuniversity.in
+            <br>Niranjan K S - niranjan.ks@bca.christuniversity.in
+            <br>Anit Rose Baby - anit.rose@bca.christuniversity.in
+        </h4>
+
+    </div>
+</body>
+
+      <script>
+
+            let messageBox = document.querySelector('.comment_side');
+            let remainingChars = document.getElementById('chars-remaining');
+
+            const MAX_CHARS = 1000;
+
+            messageBox.addEventListener('input', () => {
+
+                const remaining = MAX_CHARS - messageBox.value.length;
+
+                const color = remaining < MAX_CHARS * 0.1 ? 'red' : null;
+                remainingChars.textContent = `${remaining} characters remaining`;
+
+                remainingChars.style.color = color;
+            });
+
+            var char2 = "";
+        function generate()
+        {
+            var uniquechar = "";
+            
+          
+        const randomchar =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        
+        for (let i = 0; i < 5; i++) {
+            uniquechar += randomchar.charAt(
+                Math.random() * randomchar.length)
+        }
+        
+        char2 = uniquechar;
+        
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        
+        ctx.font = "20px Georgia";
+        var ste= "ss";
+        
+        ctx.fillText(uniquechar, 10, 20);
+
+      }
+
+
+      function validate()
+        {
+           
+            var emailCheck = document.getElementById('email').value;
+            var enteredCaptcha = document.getElementById('captcha').value;
+            var pattern = /^[A-Za-z.]{3,}@[A_Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+            
+            
+            if(pattern.test(emailCheck))
+            {
+                document.getElementById('show-email-msg').innerHTML = "Email is valid ✅";
+            }
+            else
+            {
+                document.getElementById('show-email-msg').innerHTML = "Invalid E-mail ❌";
+            }
+
+            if(enteredCaptcha === char2)
+            {
+                document.getElementById('show-captcha-msg').innerHTML = "Captcha is verified ✅";
+            }
+            
+            else
+            {
+                document.getElementById('show-captcha-msg').innerHTML = "Invalid Captcha, Try Again ❌";
+            }
+        }
+
+      </script>
+
+<script src="https://smtpjs.com/v3/smtp.js">
+        function sendEmail()
+        {
+            Email.send({
+            Host : "smtp.gmail.com",
+            Username : "mohammed.mueez@bca.christuniversity.in",
+            Password : "canara_123",
+            To : 'mohammed.mueez@bca.christuniversity.in',
+            From : document.getElementById(email).value,
+            Subject : "Request for Hotelio!",
+            Body : document.getElementsByClassName(comment_side).value
+        }).then(
+        message => alert(message)
+        );
+    }
+</script>
+</html>
